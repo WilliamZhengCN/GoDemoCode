@@ -10,7 +10,7 @@ type Node struct {
 	right *Node
 }
 
-func main1() {
+func main() {
 	node1 := Node{val: 1}
 	node2 := Node{val: 2}
 	node3 := Node{val: 3}

@@ -6,6 +6,12 @@ import (
 	"github.com/golang-collections/collections/stack"
 )
 
+type Node struct {
+	val   int
+	left  *Node
+	right *Node
+}
+
 func main() {
 	node1 := Node{val: 1}
 	node2 := Node{val: 2}
@@ -22,6 +28,9 @@ func main() {
 	node3.right = &node7
 
 	FirstPrint1(&node1)
+	fmt.Println("----------")
+	LastPrint1(&node1)
+	fmt.Println("----------")
 }
 
 func FirstPrint1(head *Node) {
@@ -33,12 +42,37 @@ func FirstPrint1(head *Node) {
 	sk.Push(head)
 	for sk.Len() != 0 {
 		head := sk.Pop().(*Node)
-		fmt.Println(head.val)
+		fmt.Printf("%v ", head.val)
 		if head.right != nil {
 			sk.Push(head.right)
 		}
 		if head.left != nil {
 			sk.Push(head.left)
 		}
+	}
+}
+
+func LastPrint1(node *Node) {
+	if node == nil {
+		return
+	}
+	stack1 := stack.Stack{}
+	collectStack := stack.Stack{}
+
+	stack1.Push(node)
+	for stack1.Len() != 0 {
+		collectNode := stack1.Pop().(*Node)
+		collectStack.Push(collectNode)
+		if collectNode.left != nil {
+			stack1.Push(collectNode.left)
+		}
+		if collectNode.right != nil {
+			stack1.Push(collectNode.right)
+		}
+	}
+
+	for collectStack.Len() != 0 {
+		node1 := collectStack.Pop().(*Node)
+		fmt.Printf("%v ", node1.val)
 	}
 }
