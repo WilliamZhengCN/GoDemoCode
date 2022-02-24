@@ -29,6 +29,8 @@ func main() {
 
 	FirstPrint1(&node1)
 	fmt.Println("----------")
+	MidPrint2(&node1)
+	fmt.Println("----------")
 	LastPrint1(&node1)
 	fmt.Println("----------")
 }
@@ -48,6 +50,53 @@ func FirstPrint1(head *Node) {
 		}
 		if head.left != nil {
 			sk.Push(head.left)
+		}
+	}
+}
+
+func MidPrint2(head *Node) {
+	if head == nil {
+		return
+	}
+	stack1 := stack.Stack{}
+	curNode := head
+
+	for stack1.Len() != 0 || curNode != nil {
+		if curNode != nil {
+			stack1.Push(curNode)
+			curNode = curNode.left
+		} else {
+			curNode = stack1.Pop().(*Node)
+			fmt.Printf("%v ", curNode.val)
+			//if head.right != nil {
+			curNode = curNode.right
+			//}
+		}
+	}
+}
+
+func MidPrint1(head *Node) {
+	if head == nil {
+		return
+	}
+	stack1 := stack.Stack{}
+	stack1.Push(head)
+	curNode := head
+	for curNode.left != nil {
+		stack1.Push(curNode.left)
+		curNode = curNode.left
+	}
+
+	for stack1.Len() != 0 {
+		node := stack1.Pop().(*Node)
+		fmt.Printf("%v ", node.val)
+		if node.right != nil {
+			stack1.Push(node.right)
+			node = node.right
+			for node.left != nil {
+				stack1.Push(node.left)
+				node = node.left
+			}
 		}
 	}
 }
