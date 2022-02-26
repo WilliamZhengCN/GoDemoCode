@@ -1,5 +1,6 @@
 package main
 
+/*
 import (
 	"fmt"
 )
@@ -58,3 +59,4 @@ func LastPrint(head *Node) {
 	LastPrint(head.right)
 	fmt.Printf("%v ", head.val)
 }
+*/
