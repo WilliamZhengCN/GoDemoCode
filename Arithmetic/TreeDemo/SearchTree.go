@@ -1,5 +1,6 @@
 package main
 
+/*
 import (
 	"fmt"
 	"math"
@@ -49,3 +50,4 @@ func IsBst(head *Node) bool {
 	}
 	return IsBst(head.right)
 }
+*/
