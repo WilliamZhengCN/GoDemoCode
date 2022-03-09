@@ -16,10 +16,6 @@ func RemSlice(arr []int) {
 	arr[0] = 2
 }
 
-func Get(arr ...int) {
-
-}
-
 func findMedianSortedArrays(nums1 []int, nums2 []int) float64 {
 	len1 := len(nums1)
 	len2 := len(nums2)
