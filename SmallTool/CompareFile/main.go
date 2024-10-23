@@ -13,6 +13,7 @@ var (
 	wg       sync.WaitGroup
 )
 
+//a
 func main() {
 	var dir string
 	flag.StringVar(&dir, "path", "F:\\jisuxt", "scanFile")
