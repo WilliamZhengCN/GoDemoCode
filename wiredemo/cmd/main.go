@@ -13,6 +13,7 @@ func NewApp(db *sql.DB) *App {
 	return &App{db: db}
 }
 
+//aa
 func main() {
 	app, err := InitApp()
 	if err != nil {
